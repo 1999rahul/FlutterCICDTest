@@ -21,4 +21,9 @@ jobs:
         run: flutter pub get
 
       - name: Build APK
-        run: flutter build apk
+        run: |
+          pushd android 
+          flutter build apk
+          ./gradlew app:assembleAndroidTest
+          ./gradlew app:assembleDebug -Ptarget=${{ github.workspace }}/integration_test/app_test.dart
+          popd
