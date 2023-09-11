@@ -27,7 +27,7 @@ jobs:
           ./gradlew app:assembleAndroidTest
           ./gradlew app:assembleDebug -Ptarget=${{ github.workspace }}/integration_test/app_test.dart
           popd
-      - name: Set up Google Cloud SDK
-        uses: google-github-actions/setup-gcloud@v0.1.5
+      - name: 'Authenticate to Google Cloud'
+        uses: 'google-github-actions/auth@v1'
         with:
-          serviceAccountKey: ${{ secrets.GCP_SA_KEY }}
+          credentials_json: '${{ secrets.GCP_SA_KEY }}'
