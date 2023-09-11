@@ -26,4 +26,5 @@ jobs:
           flutter build apk
           ./gradlew app:assembleAndroidTest
           ./gradlew app:assembleDebug -Ptarget=${{ github.workspace }}/integration_test/app_test.dart
+          flutter test
           popd
