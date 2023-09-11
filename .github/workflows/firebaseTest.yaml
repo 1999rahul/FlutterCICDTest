@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Build APK
+      - name: Build App and debug APK
         run: |
           pushd android 
           flutter build apk
